@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.image-generator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3366CC;
+    height: 50vh;
+}
+
+
+.image-generator-content h1 {
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.image-generator-content form {
+    display: grid;
+    gap: 20px;
+}
+
+.image-generator-content input {
+    background: rgba(217, 217, 217, 0.16);
+    width: 40vh;
+    height: 5vh;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.image-generator-content textarea {
+    background: rgba(217, 217, 217, 0.16);
+    width: 40vh;
+    resize: none;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.image-generator-content input::placeholder {
+    color: rgb(195, 195, 195);
+    margin-left: 20px;
+}
+
+.image-generator-content textarea::placeholder {
+    color: rgb(195, 195, 195);
+}
+
+
+.custom-btn {
+    width: 40vh;
+    height: 60px;
+    color: #fff;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    border-radius: 20px;
+}
+
+
+
+.generated-img {
+    background: #CDB99C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.generated-img h2 {
+    color: #353535;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-decoration: dotted;
+}
+
+.generated-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+@media (min-width: 220px) and (max-width: 530px) {
+    .image-generator-container {
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-generator-content h1 {
+        font-size: 20px;
+    }
+
+    .custom-btn {
+        /* width: 25vh; */
+        height: 50px;
+        padding: 10px;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .generated-img {
+        flex-wrap: wrap;
+    }
+
+    .generated-img img {
+        width: 100%;
+        height: 100%;
+    }
+
+}
