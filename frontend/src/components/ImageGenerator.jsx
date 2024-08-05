@@ -14,7 +14,7 @@ const ImageGenerator = () => {
         }
 
         try {
-            const response = await axios.post('/api/generate-og-image', {
+            const response = await axios.post('https://image-generator-xofb.onrender.com/api/generate-og-image', {
                 "title": title,
                 "content": content,
             });
