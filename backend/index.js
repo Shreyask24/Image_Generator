@@ -49,7 +49,7 @@ app.post('/api/generate-og-image', async (req, res) => {
     res.json({ imageUrl: `/public/${path.basename(imagePath)}` });
   } catch (error) {
     console.error('Error generating OG image:', error);
-    res.status(500).json({ error: 'Failed to generate OG image' });
+    res.status(500).json({ error: `Failed to generate OG image ${error}` });
   }
 });
 
