@@ -11,7 +11,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// Serve static files from the React app build directory
+const reactBuildPath = path.join(__dirname, '../frontend/dist');
+app.use(express.static(reactBuildPath));
 
 app.post('/api/generate-og-image', async (req, res) => {
   const { title, content } = req.body;
@@ -51,8 +53,9 @@ app.post('/api/generate-og-image', async (req, res) => {
   }
 });
 
+// Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  res.sendFile(path.join(reactBuildPath, 'index.html'));
 });
 
 app.listen(port, () => {
