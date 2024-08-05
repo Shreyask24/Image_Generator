@@ -53,7 +53,6 @@ app.post('/api/generate-og-image', async (req, res) => {
   }
 });
 
-// Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
   res.sendFile(path.join(reactBuildPath, 'index.html'));
 });
