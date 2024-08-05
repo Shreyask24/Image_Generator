@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://image-generator-xofb.onrender.com', // Proxy API requests to the backend
+      '/api': 'https://image-generator-cpa0.onrender.com', // Proxy API requests to the backend
     },
   },
 });
