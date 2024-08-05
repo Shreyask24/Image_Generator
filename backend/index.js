@@ -4,18 +4,16 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
 const app = express();
-const port = ` https://image-generator-xofb.onrender.com`;
+const port = process.env.PORT || 5000;
 
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../img-generate/dist')));
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-
-app.post('https://image-generator-xofb.onrender.com/api/generate-og-image', async (req, res) => {
+app.post('/api/generate-og-image', async (req, res) => {
   const { title, content } = req.body;
 
   try {
@@ -40,7 +38,7 @@ app.post('https://image-generator-xofb.onrender.com/api/generate-og-image', asyn
 
     await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
 
-    const imagePath = path.join(__dirname, '../img-generate/public', `${Date.now()}_og_image.png`);
+    const imagePath = path.join(__dirname, '../frontend/public', `${Date.now()}_og_image.png`);
 
     await page.screenshot({ path: imagePath });
 
@@ -54,9 +52,9 @@ app.post('https://image-generator-xofb.onrender.com/api/generate-og-image', asyn
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../img-generate/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on https://image-generator-xofb.onrender.com`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
